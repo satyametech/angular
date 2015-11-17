@@ -8,11 +8,7 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
 
     }
     $scope.inviteUser = function () {
-        if ($scope.invtemail === undefined) {
-            $scope.emailmsg = "Pls fill Email id...";
-        } else if ($scope.selrole === undefined) {
-            $scope.emailmsg = "Please select role";
-        } else {
+         
             
             var promise = ajaxService.sendEmail($scope.invtemail, $scope.selrole);
             $scope.emailmsg = "sending email please wait";
@@ -37,7 +33,7 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
                 console.log("Email Not Sended");
                 $scope.emailmsg = "Email Not Sended";
             });
-        }
+        
     };
 });
 })();

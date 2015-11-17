@@ -3,9 +3,7 @@
 myApp.controller('loginCtrl', function ($rootScope, $state, $scope, $http, ajaxService, $q, $localStorage) {
 //    var current_state=$state.$current.name;
     
-    if ($localStorage.loc_email !== undefined) {
-        $state.go('home');
-    } else {
+    
         $scope.loginData = function () {
             var promise = ajaxService.loginData($scope.email, $scope.password);
             promise.then(function (data) {
@@ -28,6 +26,6 @@ myApp.controller('loginCtrl', function ($rootScope, $state, $scope, $http, ajaxS
                 $scope.error = "Login not done! Email or password is wrong"
             });
         }
-    }
+    
 });
 })();
