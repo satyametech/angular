@@ -13,8 +13,8 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
         } else if ($scope.selrole === undefined) {
             $scope.emailmsg = "Please select role";
         } else {
-            var txtmsg = "Link :- http://excellencetechnologies.co.in/satyam/satyam/#/signup//"+$scope.selrole+"/"+$scope.invtemail+";";
-            var promise = ajaxService.sendEmail($scope.invtemail, $scope.selrole, txtmsg);
+            
+            var promise = ajaxService.sendEmail($scope.invtemail, $scope.selrole);
             $scope.emailmsg = "sending email please wait";
             promise.then(function (data) {
                 var data = data.data;
