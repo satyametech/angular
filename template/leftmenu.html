@@ -1,0 +1,25 @@
+
+
+
+<div class="container">
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li class="active"> <a ui-sref="home"><div class="linkCls" ng-show="home" >Home</div></a></li>
+    
+        <li><a id="view" ui-sref="inviteUser"><div class="linkCls" ng-show="invite">Invite User</div></a></li>
+  
+        <li><a id="view" ui-sref="viewUser"><div class="linkCls" ng-show="view" ng-click="vPage();"  >View All</div></a></li>
+   
+        <li><a id="view" ui-sref="login" ng-click="logout();"><div class="linkCls" >Logout</div></a></li>
+    </ul></div></div>
+</nav>
