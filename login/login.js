@@ -1,3 +1,5 @@
+(function () {
+'use strict';
 myApp.controller('loginCtrl', function ($rootScope, $state, $scope, $http, ajaxService, $q, $localStorage) {
 //    var current_state=$state.$current.name;
     
@@ -28,3 +30,4 @@ myApp.controller('loginCtrl', function ($rootScope, $state, $scope, $http, ajaxS
         }
     }
 });
+})();

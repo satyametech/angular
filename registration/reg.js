@@ -1,8 +1,10 @@
+(function () {
+'use strict';
 myApp.controller('signupCtrl', function ($rootScope, $scope, $http, ajaxService, $state, $stateParams) {
 
     $scope.role = $stateParams['q'];
-    $scope.email = $stateParams['email'];
-    console.log($scope.role + $scope.email);
+    $scope.email = $stateParams['remail'];
+    console.log($scope.role + $scope.remail);
     var role;
 //    $rootScope.notLogedin = true;
     $scope.selectRole = function () {
@@ -20,13 +22,14 @@ myApp.controller('signupCtrl', function ($rootScope, $scope, $http, ajaxService,
             
             console.log(x);
             if (x === false) {
-                alert("erre");  
+//                alert("erre");  
                 $scope.error = "Some Thing Going Wrong";
             } else {
                 $scope.error = "Registration is Successful";
             }
-            console.log("Hello" + x);
+            console.log("something " + x);
         }
     };
 
 });
+})();

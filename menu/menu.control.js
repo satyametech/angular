@@ -1,3 +1,5 @@
+(function () {
+'use strict';
 myApp.controller('menuCtrl', function ($scope, $rootScope, $localStorage, $state) {
 
     if ($localStorage.role ==='Admin') {
@@ -52,3 +54,4 @@ myApp.controller('menuCtrl', function ($scope, $rootScope, $localStorage, $state
                     }
                 };
             });
+        })();

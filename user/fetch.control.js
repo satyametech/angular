@@ -1,3 +1,6 @@
+(function () {
+'use strict';
+
 myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'ajaxService', function ($rootScope, $scope, $http, $interval, ajaxService) {
 
         var self = this;
@@ -49,7 +52,7 @@ myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'aj
         };
         $scope.updateData = function (rec) {
             console.log(rec.Name);
-            ajaxService.updateRecord(rec.id, rec.name, rec.email, rec.password, rec.role, rec.date_of_birth);
+            ajaxService.updateRecord(rec.id, rec.name, rec.email, rec.password, rec.role);
             $scope.editingData[rec.id] = false;
             $scope.editbtnn[rec.id] = true;
             $scope.updbtn[rec.id] = false;
@@ -76,3 +79,4 @@ myApp.filter('offset', function () {
         return input.slice(start);
     };
 });
+})();

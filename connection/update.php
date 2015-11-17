@@ -10,10 +10,11 @@ $password = $data->password;
 $role = $data->role;
 
 
-$update_query = "UPDATE logindata SET `id`='$id', `name`='$name', `email`='$email', `password`='$password', `role`='$role' WHERE `id`='$id'";
+$update_query = "UPDATE logindata SET id='$id', name='$name', email='$email', password='$password', role='$role' WHERE id='$id'";
+//$update_query = "UPDATE logindata SET id='3', name='remsa', email='rr@rr.in', password='12345', role='guest' WHERE id='2'";
 
-$update_result = mysqli_query($update_query) or die('error');
-echo "Form Submitted Succesfully";
+$update_result = mysqli_query($conn,$update_query) or die('error');
+echo ("hey");
 
 if($update_query){
     $arr = array("msg" => "Success");

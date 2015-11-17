@@ -1,3 +1,5 @@
+(function () {
+'use strict';
 myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $state, $timeout) {
     
     var role1;
@@ -11,9 +13,9 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
         } else if ($scope.selrole === undefined) {
             $scope.emailmsg = "Please select role";
         } else {
-            var txtmsg = "Link :- http://excellencetechnologies.co.in/satyam/Angular/task1/#/register/"+$scope.selrole+"/"+$scope.invtemail+";";
+            var txtmsg = "Link :- http://excellencetechnologies.co.in/satyam/satyam/#/signup//"+$scope.selrole+"/"+$scope.invtemail+";";
             var promise = ajaxService.sendEmail($scope.invtemail, $scope.selrole, txtmsg);
-            $scope.emailmsg = "sending in progress.....";
+            $scope.emailmsg = "sending email please wait";
             promise.then(function (data) {
                 var data = data.data;
                 console.log("hello" + data.err);
@@ -38,3 +40,4 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
         }
     };
 });
+})();
