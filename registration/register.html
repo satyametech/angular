@@ -10,7 +10,7 @@
                             <h2> Registration Form</h2>
                             {{error}}
                             <div class="form-group">
-                                <input type="text" name="name"  required="" ng-model="name" class="form-control" ng-minlength="5" placeholder = "enter your full name" required="" ng-minlength="5" ng-maxlength="100"  ng-blur="n = true" ng-focus="n = false">
+                                <input type="text" name="name"  required="" ng-model="name" class="form-control" ng-minlength="5" placeholder = "enter your full name" required="" ng-minlength="5" ng-maxlength="100"  ng-blur="n = true" ng-focus="n = false" >
 
                                 <span ng-show="myreg.name.$error.minlength"> - *too short</span>
                                 <span ng-show="myreg.name.$error.maxlength">* too long</span></div>
@@ -27,7 +27,7 @@
                                 <span ng-show="myreg.pass.$error.minlength"> * too short ( minimum - 5 character)</span>
                                 <span ng-show="myreg.pass.$error.maxlength"> * too long</span></div>
                             <div class="form-group">
-                                <input type="password" ng-model="cpassword" required="" placeholder="confirm password" class="form-control"><span>{{match}}</span></div>
+                                <input type="password" ng-model="cpassword" required="" placeholder="confirm password" class="form-control" ><span>{{match}}</span></div>
 
                             <div class="form-group">
                                 <select ng-model="role"  disabled="" ng-change="selectRole();" class="form-control" required=""  >
@@ -37,11 +37,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="date" name="dob" required="" ng-model="date_of_birth" class="form-control" placeholder="Enter Your date Of Birth" required=""></div>
+                                <datepicker date-format="MM-dd-yyyy">
+                                <input type="text" name="dob" required="" ng-model="date_of_birth" class="form-control" style="margin-bottom:15px;" placeholder="Please Select Your Date Of Birth" />
+                                </datepicker></div>
+
+
 
 
                             <div class = "form-group">
-                                <input type="submit"   class="btn btn-lg btn-success btn-block" name="register" id="registerId" ng-model="user.register"  value="Register" ng-click="insertData(user);" ></div>
+                                <input type="submit"   class="btn btn-lg btn-success btn-block" name="register" id="registerId" ng-model="user.register"  value="Register" ng-click="insertData(user);" ng-disabled="myreg.$invalid" ></div>
                             <a ui-sref="login"><button class="btn btn-lg btn-success btn-block">Login</button></a>
                         </form>
                     </div></div></div></div>
