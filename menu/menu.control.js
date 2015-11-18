@@ -6,20 +6,12 @@ myApp.controller('menuCtrl', function ($scope, $rootScope, $localStorage, $state
         $scope.home = true;
         $scope.invite = true;
         $scope.view = true;
-        $scope.line2 = true;
-        $scope.line3 = true;
-        $rootScope.delOption = false;
-        $rootScope.editOption = false;
-        $rootScope.editth = false;
-        $rootScope.edittd = false;
+    
 
     } 
     else if ($localStorage.role === 'User') {
         $scope.home = true;
-        $scope.invite = false;
-        $scope.view = true;
-        $scope.line2 = false;
-        $scope.line3 = true;
+        $scope.view = true; 
         $rootScope.editOption = false;
         $rootScope.editth = false;
         $rootScope.edittd = false;
@@ -27,14 +19,8 @@ myApp.controller('menuCtrl', function ($scope, $rootScope, $localStorage, $state
     } 
     else if ($localStorage.role === 'Guest') {
         $scope.home = true;
-        $scope.invite = false;
         $scope.view = true;
-        $scope.line2 = false;
-        $scope.line3 = true;
-        $rootScope.delOption = true;
-        $rootScope.editOption = true;
-        $rootScope.editth = true;
-        $rootScope.edittd = true;
+       
     }
     
     

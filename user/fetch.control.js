@@ -12,9 +12,6 @@ myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'aj
                 $scope.currentPage--;
             }
         };
-        $scope.prevPageDisabled = function () {
-            return $scope.currentPage === 0 ? "disabled" : "";
-        };
         $scope.pageCount = function () {
             return Math.ceil($scope.records.length / $scope.itemsPerPage) - 1;
         };
@@ -23,12 +20,6 @@ myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'aj
                 $scope.currentPage++;
             }
         };
-        $scope.nextPageDisabled = function () {
-            return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
-        };
-        $interval(function () {
-            self.fetch();
-        }, 100000);
         self.fetch = function () {
             $http.get('connection/fetch.php').success(function (data) {
                 $scope.records = data;
@@ -38,14 +29,11 @@ myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'aj
         $scope.$on('eventName', function (event, args) {
             self.fetch();
         });
-        $scope.editingData = [];
-        $scope.editbtnn = [];
-        $scope.updbtn = [];
+        
         $scope.editData = function (recAll) {
             $scope.editingData = [];
             $scope.editbtnn = [];
             $scope.updbtn = [];
-//            console.log(recAll);
             $scope.editingData[recAll.id] = true;
             $scope.editbtnn[recAll.id] = false;
             $scope.updbtn[recAll.id] = true;
@@ -60,7 +48,6 @@ myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'aj
         };
 
         $scope.deleteData = function (rec) {
-//            console.log(rec);
             var promise = ajaxService.delete(rec);
             promise.then(function (data) {
                 $scope.delmsg = "Record Deleted...";

@@ -23,7 +23,6 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
                     $state.go('inviteUser');
                     $scope.invtemail = "";
                     $scope.selrole = "";
-//            $scope.emailmsg = "";
                     var x = $timeout(function () {
                         $scope.emailmsg = "";
                     }, 2000);
