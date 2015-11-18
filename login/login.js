@@ -17,7 +17,7 @@ function loginCtrl($rootScope, $state, $scope, $http, ajaxService, $q, $localSto
 //                    alert(data.msg);
                     $scope.error = "Login Successful";
                     $localStorage.loc_email = $scope.email;
-                    $localStorage.loc_pass = $scope.password;
+                    
                     $localStorage.role = data.role;
                     $state.go('home');
                 } else {

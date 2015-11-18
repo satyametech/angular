@@ -4,7 +4,7 @@
 angular.module('formApp')
 .controller('signupCtrl',signupCtrl);
 function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, ajaxService){
-    $scope.role = $stateParams['q'];
+    $scope.role = $stateParams['role'];
     $scope.email = $stateParams['remail'];
     console.log($scope.role + $scope.remail);
     var role;
