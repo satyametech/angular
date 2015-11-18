@@ -1,7 +1,9 @@
 (function () {
 'use strict';
-myApp.controller('menuCtrl', function ($scope, $rootScope, $localStorage, $state) {
 
+angular.module('formApp')
+.controller('menuCtrl',menuCtrl);
+function menuCtrl($rootScope,$localStorage, $scope, $http, $interval, $state, ajaxService){
     if ($localStorage.role ==='Admin') {
         $scope.home = true;
         $scope.invite = true;
@@ -30,14 +32,17 @@ myApp.controller('menuCtrl', function ($scope, $rootScope, $localStorage, $state
         $state.go('login');
         console.log("Now you are logout");
     };
-});
+};
 
-        myApp.directive('menuDiv', function($document) {
+        // myApp.directive('menuDiv', function($document) {
+            angular.module('formApp')
+             .controller('menuDiv',menuDiv);
+                   function menuDiv($document){
                 return {
                     restrict: 'A',
                     templateUrl: 'template/leftmenu.html',
                     link: function(scope, element, attrs) {
                     }
                 };
-            });
+            };
         })();

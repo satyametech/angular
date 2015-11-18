@@ -1,8 +1,8 @@
 (function () {
 'use strict';
-myApp.controller('loginCtrl', function ($rootScope, $state, $scope, $http, ajaxService, $q, $localStorage) {
-//    var current_state=$state.$current.name;
-    
+    angular.module('formApp')
+.controller('loginCtrl',loginCtrl);
+function loginCtrl($rootScope, $localStorage, $scope, $http, $interval, ajaxService){
     
         $scope.loginData = function () {
             var promise = ajaxService.loginData($scope.email, $scope.password);
@@ -27,5 +27,5 @@ myApp.controller('loginCtrl', function ($rootScope, $state, $scope, $http, ajaxS
             });
         }
     
-});
+};
 })();

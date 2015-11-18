@@ -1,7 +1,9 @@
 (function () {
 'use strict';
-myApp.controller('signupCtrl', function ($rootScope, $scope, $http, ajaxService, $state, $stateParams) {
 
+angular.module('formApp')
+.controller('signupCtrl',signupCtrl);
+function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, ajaxService){
     $scope.role = $stateParams['q'];
     $scope.email = $stateParams['remail'];
     console.log($scope.role + $scope.remail);
@@ -31,5 +33,5 @@ myApp.controller('signupCtrl', function ($rootScope, $scope, $http, ajaxService,
         }
     };
 
-});
+};
 })();

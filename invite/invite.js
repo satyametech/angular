@@ -1,7 +1,9 @@
 (function () {
 'use strict';
-myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $state, $timeout) {
-    
+
+    angular.module('formApp')
+.controller('inviteCtrl',inviteCtrl);
+function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout,$interval, ajaxService){
     var role1;
     $scope.userRole = function () {
 
@@ -34,5 +36,5 @@ myApp.controller('inviteCtrl', function ($rootScope, $scope, ajaxService, $q, $s
             });
         
     };
-});
+};
 })();

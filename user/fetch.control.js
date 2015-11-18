@@ -1,8 +1,8 @@
 (function () {
 'use strict';
-
-myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'ajaxService', function ($rootScope, $scope, $http, $interval, ajaxService) {
-
+angular.module('formApp')
+.controller('fetchCtrl',fetchCtrl);
+function fetchCtrl($rootScope, $scope, $http, $interval, ajaxService){
         var self = this;
         $scope.itemsPerPage = 5;
         $scope.currentPage = 0;
@@ -58,12 +58,15 @@ myApp.controller('fetchCtrl', ['$rootScope', '$scope', '$http', '$interval', 'aj
                 $scope.delmsg = "Record Not Deleted...";
             });
         };
-    }]);
+    };
 
-myApp.filter('offset', function () {
+// formApp.filter('offset', function () {
+    angular.module('formApp')
+.filter('offset',offset);
+function offset(){
     return function (input, start) {
         start = parseInt(start, 10);
         return input.slice(start);
     };
-});
+};
 })();
