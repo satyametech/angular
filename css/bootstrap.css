@@ -1587,7 +1587,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 5%;
+  /*margin-top: 5%;*/
 }
 @media (min-width: 768px) {
   .container {
@@ -6800,7 +6800,7 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 body {
-  padding-top: 40px;
+  /*padding-top: 40px;*/
   padding-bottom: 40px;
   background-color: #eee;
 }
