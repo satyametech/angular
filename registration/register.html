@@ -25,6 +25,7 @@
 
                             <div class="form-group">
                                 <select ng-model="role"   ng-change="selectRole();" class="form-control" required="">
+                                    <option value="" disabled selected hidden>Select Role</option>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
                                     <option value="Guest">Guest</option>
@@ -34,7 +35,7 @@
                                 
                                 <div class="form-group">
                                 <datepicker date-format="yyyy-MM-dd">
-                                <input type="text" name="dob"  ng-model="date_of_birth" class="form-control" required=""placeholder="Please Select Date Of Birth" required=""></datepicker> </div>
+                                <input type="text" readonly="readonly" name="dob"  ng-model="date_of_birth" class="form-control" required=""placeholder="Please Select Date Of Birth" required=""></datepicker> </div>
                                
 
 

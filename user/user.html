@@ -4,7 +4,7 @@
 <div class="container">
     
         
-        <div class="panel panel-success">
+        <div class="panel panel-info">
             <div class="panel-heading">User Table</div>
             <div class="panel-body">
             
@@ -13,23 +13,23 @@
                     <input type="text" class="search-item form-control" ng-model="search" placeholder="Search Query:">
                 </div>
                 
-                <table class="table table-bordered table-responsive table-hover table-striped example" style="table-layout: fixed;">
+                <table class="table table-bordered table-responsive table-hover table-striped table-condensed " style="table-layout: fixed;">
                     
                     <tr>
                     
-                        <th class="fetch" ><a href="" ng-click="columnToOrder = 'id';
+                        <th class="fetch info" ><a href="" ng-click="columnToOrder = 'id';
                             reverse = !reverse"> ID </a></th>
-                        <th class="fetch" ><a href="" ng-click="columnToOrder = 'name';
+                        <th class="fetch info" ><a href="" ng-click="columnToOrder = 'name';
                             reverse = !reverse"> NAME </a></th>
-                        <th class="fetch"><a href="" ng-click="columnToOrder = 'email';
+                        <th class="fetch info"><a href="" ng-click="columnToOrder = 'email';
                             reverse = !reverse"> EMAIL ID </a></th>
-                        <th class="fetch"><a href="" ng-click="columnToOrder = 'password';
+                        <th class="fetch info"><a href="" ng-click="columnToOrder = 'password';
                             reverse = !reverse"> PASSWORD </a></th>
-                        <th class="fetch"><a href="" ng-click="columnToOrder = 'role';
+                        <th class="fetch info"><a href="" ng-click="columnToOrder = 'role';
                             reverse = !reverse"> ROLE </a></th>
-                        <th class="fetch"><a href="" ng-click="columnToOrder = 'date_of_birth';
-                            reverse = !reverse"> DATE_OF_BIRTH </a></th>
-                        <th class="fetch" ng-hide="editth"><a href="" >Edit/Delete</a></th>
+                        <th class="fetch info"><a href="" ng-click="columnToOrder = 'date_of_birth';
+                            reverse = !reverse"> DATE OF BIRTH </a></th>
+                        <th class="fetch info" ng-hide="editth"><a href="" >Edit/Delete</a></th>
                     </tr>
                     <tr id="1" ng-repeat=" rec in records| orderBy:columnToOrder:reverse | filter:search | offset: currentPage * itemsPerPage | limitTo: itemsPerPage ">
                         <td class="fetch" ng-model="dataId" >{{rec.id}}</td>
