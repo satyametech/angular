@@ -2,9 +2,9 @@
 
 require 'config.php';
 
-
+$page=$_REQUEST['page'];
 //Retriveing data using JSON & AJAX
-$result = mysqli_query($conn,"SELECT * FROM logindata ORDER BY id DESC");
+$result = mysqli_query($conn,"SELECT * FROM logindata ORDER BY id DESC LIMIT $page,5");
 
 $array_res = array();
 $i = 0;

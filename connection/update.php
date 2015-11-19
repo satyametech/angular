@@ -8,14 +8,14 @@ $name = $data->name;
 $email = $data->email;
 $password = $data->password;
 $role = $data->role;
-$dob = $data->dob;
+$date_of_birth = $data->date_of_birth;
 
 
-$update_query = "UPDATE logindata SET id='$id', name='$name', email='$email', password='$password', role='$role' date_of_birth='$dob' WHERE id='$id'";
-//$update_query = "UPDATE logindata SET id='3', name='remsa', email='rr@rr.in', password='12345', role='guest' WHERE id='2'";
+$update_query = "UPDATE logindata SET id='$id', name='$name', email='$email', password='$password', role='$role' date_of_birth='$date_of_birth' WHERE id='$id'";
+//$update_query = "UPDATE logindata SET id='4', name='qw', email='rr@rr.in', password='12345', role='guest' WHERE id='3'";
 
 $update_result = mysqli_query($conn,$update_query) or die('error');
-echo ("hey");
+echo ("success");
 
 if($update_query){
     $arr = array("msg" => "Success");
