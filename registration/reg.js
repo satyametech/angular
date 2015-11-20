@@ -5,8 +5,8 @@ angular.module('formApp')
 .controller('signupCtrl',signupCtrl);
 function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, ajaxService){
     $scope.role = $stateParams['role'];
-    $scope.email = $stateParams['remail'];
-    console.log($scope.role + $scope.remail);
+    $scope.email = $stateParams['email'];
+    console.log($scope.role + $scope.email);
     var role;
 //    $rootScope.notLogedin = true;
     $scope.selectRole = function () {

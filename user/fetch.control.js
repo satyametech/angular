@@ -35,16 +35,12 @@ function fetchCtrl($rootScope, $scope, $http, $interval, ajaxService){
             if ($scope.currentPage < $scope.pageCount()) {
                 $scope.currentPage++;
             }
-            else if($scope.records.length>=0){
 
-            
-       data = data+5;
-
-            
-            self.fetch();
-            
+            else if($scope.records.length!==0){
+            data =  data+5;            
+            self.fetch();            
             $scope.nextPage.enabled=false;
-            // alert(data);   
+             //alert(data);   
             } 
         
 
