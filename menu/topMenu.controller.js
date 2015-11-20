@@ -37,14 +37,5 @@
        
 
     
-    angular.module('formApp')
-            .controller('menuDiv', menuDiv);
-    function menuDiv($document) {
-        return {
-            restrict: 'A',
-            templateUrl: 'template/leftmenu.html',
-            link: function(scope, element, attrs) {
-            }
-        };
-    };
+        
 })();
