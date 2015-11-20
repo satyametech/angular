@@ -32,8 +32,9 @@
             $state.go('login');
             console.log("Now you are logout");
         };
-    }
-    ;
+    };
+
+       
 
     
     angular.module('formApp')
@@ -45,6 +46,5 @@
             link: function(scope, element, attrs) {
             }
         };
-    }
-    ;
+    };
 })();

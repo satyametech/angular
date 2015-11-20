@@ -11,6 +11,7 @@ function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, ajaxServ
 //    $rootScope.notLogedin = true;
     $scope.selectRole = function () {
         role = $scope.role;
+        //email = $scope.email;
     },
 
 
