@@ -14,9 +14,12 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li ng-class="{active: activetab=='/home'}" > <a ui-sref="home"><div  >Home</div></a></li>
+        
     
-        <li ng-class="{active: activetab=='/inviteUser'}" ><a  ui-sref="inviteUser"><div >Invite User</div></a></li>
+
+        <li ng-class="{active: activetab=='/home' }" > <a ui-sref="home"><div  >Home</div></a></li>
+    
+        <li ng-class="{active: activetab=='/inviteUser'}" ng-show="invite"><a  ui-sref="inviteUser"><div >Invite User</div></a></li>
   
         <li ng-class="{active: activetab=='/viewUser'}" ><a  ui-sref="viewUser"><div ng-click="vPage();"  >View All</div></a></li>
    

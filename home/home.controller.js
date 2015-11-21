@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('formApp')
@@ -6,10 +6,11 @@
     function homeCtrl($rootScope, $scope, $localStorage, $state) {
         $rootScope.notLogedin = false;
         if ($localStorage.user) {
+
             $scope.email = $localStorage.user.email;
             $scope.role = $localStorage.user.role;
         }
-       
+
 
     }
     ;
