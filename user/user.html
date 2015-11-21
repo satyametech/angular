@@ -31,11 +31,11 @@
                             reverse = !reverse"> DATE OF BIRTH </a></th>
                         <th class="fetch info" ng-hide="editth"><a href="" >Edit/Delete</a></th>
                     </tr>
-                    <tr id="1" ng-repeat=" rec in records| orderBy:columnToOrder:reverse | filter:search | offset: currentPage * itemsPerPage | limitTo: itemsPerPage ">
+                    <tr ng-if="rec" id="1" ng-repeat=" rec in records | orderBy:columnToOrder:reverse | filter:search | offset: currentPage * itemsPerPage | limitTo: itemsPerPage ">
                         <td class="fetch" ng-model="dataId" >{{rec.id}}</td>
                         <td class="fetch" ><input type="text" name="rId" style="width:140px;" ng-model="rec.name" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.name}}</span></td>
                         <td class="fetch"><input type="text" name="rId" style="width:140px;" ng-model="rec.email" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.email}}</span></td>
-                        <td class="fetch"><input type="text" name="rId" style="width:140px;" ng-model="rec.password" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.password}}</span></td>
+                        <td class="fetch"><input type="text" name="rId" style="min-width:200px;" ng-model="rec.password" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.password}}</span></td>
                         <td class="fetch"><input type="text" name="rId" style="width:140px;" ng-model="rec.role" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.role}}</span></td>
                         <td class="fetch"><input type="text" name="rId" style="width:140px;" ng-model="rec.date_of_birth" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.date_of_birth}}</span></td>
                         <td class="fetch"  ng-hide="edittd">
@@ -47,10 +47,10 @@
         <span>{{delmsg}}</span>
 
         <ul class="pager">  
-            <button class="btn-btn btn-sm btn-success btn-block-success" ng-click="prevPage()" ng-disabled="false"> 
+            <button class="btn-btn btn-sm btn-success btn-block-success" ng-click="prevPage()" ng-hide="prev"> 
                 <a href = "#">prev
                 </a> </button>
-            <button class="btn-btn btn-sm btn-success btn-block-success"  ng-click="nextPage()" ng-disabled="false">
+            <button class="btn-btn btn-sm btn-success btn-block-success"  ng-click="nextPage()" ng-hide="next">
                 <a href = "#">next
                 </a> </button>
         </ul>

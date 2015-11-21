@@ -10,7 +10,7 @@
 
             $http.post("connection/signup.php", {'name': name, 'remail': remail, 'rpassword': rpassword, 'role': role, 'date_of_birth': date_of_birth})
                     .success(function(data, status, headers, config) {
-//                        console.log(user);
+
                         console.log("inserted Successfully");
                         $localStorage.loc_email = remail;
                         $localStorage.role = role;
@@ -33,7 +33,7 @@
             var promise = logRes();
             return promise;
         };
-//    }
+
 
         self.delete = function(id) {
             function delRes() {
@@ -60,10 +60,10 @@
             return promise;
         };
 
-        self.updateRecord = function(id, name, email, password, role,date_of_birth) {
+        self.updateRecord = function(id, name, email, password, role, date_of_birth) {
 
 
-            $http.post("connection/update.php", {'id': id, 'name': name, 'email': email, 'password': password, 'role': role,'date_of_birth': date_of_birth})
+            $http.post("connection/update.php", {'id': id, 'name': name, 'email': email, 'password': password, 'role': role, 'date_of_birth': date_of_birth})
                     .success(function(data, status, headers, config) {
 //                        console.log(user);
                         if (data.msg === 'Success') {

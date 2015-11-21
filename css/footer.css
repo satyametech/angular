@@ -1,13 +1,16 @@
 
   html, body {
   height: 100%;
-}
+position: relative !important;
+  }
 
 .modal-footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: auto;
+clear: both;
 }
+
 
 
    
