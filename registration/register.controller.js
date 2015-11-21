@@ -3,29 +3,26 @@
 
 angular.module('formApp')
 .controller('signupCtrl',signupCtrl);
-function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, ajaxService){
+function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, registerService){
     $scope.role = $stateParams['role'];
     $scope.remail = $stateParams['email'];
     console.log($scope.role + $scope.remail);
     var role;
-//    $rootScope.notLogedin = true;
     $scope.selectRole = function () {
         role = $scope.role;
-        //email = $scope.email;
+
     },
-
-
 
     $scope.insertData = function () {
         if ($scope.rpassword !== $scope.cpassword) {
             $scope.error = "Password not matched";
         } else {
             console.log(role);
-            var x = ajaxService.storeData($scope.name, $scope.remail, $scope.rpassword, $scope.role,$scope.date_of_birth);
+            var x = registerService.storeData($scope.name, $scope.remail, $scope.rpassword, $scope.role,$scope.date_of_birth);
             
             console.log(x);
             if (x === false) {
-//                alert("erre");  
+  
                 $scope.error = "Some Thing Going Wrong";
             } else {
                 $scope.error = "Registration is Successful";

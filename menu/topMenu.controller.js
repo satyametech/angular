@@ -3,7 +3,7 @@
 
     angular.module('formApp')
             .controller('menuCtrl', menuCtrl);
-    function menuCtrl($rootScope, $localStorage, $scope, $http, $interval, $state, ajaxService) {
+    function menuCtrl($rootScope, $localStorage, $scope, $http, $interval, $state) {
 
 
 

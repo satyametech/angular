@@ -2,7 +2,7 @@
     'use strict';
     angular.module('formApp')
             .controller('fetchCtrl', fetchCtrl);
-    function fetchCtrl($rootScope, $scope, $http, $interval, ajaxService) {
+    function fetchCtrl($rootScope, $scope, $http, $interval, updateService,deleteService) {
         var data = 0;
 
         var self = this;
@@ -14,19 +14,14 @@
         $scope.prevPage = function() {
             if ($scope.currentPage > 0) {
                 $scope.currentPage--;
-
             }
             else if (data > 0) {
                 data = data - 5;
                 self.fetch();
                 $scope.prevPage.enabled = false;
-                // alert(data);
+                
             }
-
-
-
         };
-
 
         $scope.pageCount = function() {
             return Math.ceil($scope.records.length / $scope.itemsPerPage) - 1;
@@ -39,17 +34,9 @@
             else if ($scope.records.length !== 0) {
                 data = data + 5;
                 self.fetch();
-                $scope.nextPage.enabled = false;
-                //alert(data);   
+                $scope.nextPage.enabled = false;  
             }
-
-
         };
-
-
-
-
-
         self.fetch = function() {
 
             if (data + 5 > $scope.length)
@@ -66,15 +53,12 @@
                 $scope.records = data.data;
                 $scope.length = data.length.count;
             });
-
         };
         self.fetch();
 
         $scope.$on('eventName', function(event, args) {
             self.fetch();
         });
-
-
         $scope.editData = function(recAll) {
             $scope.editingData = [];
             $scope.editbtnn = [];
@@ -85,15 +69,15 @@
         };
         $scope.updateData = function(rec) {
             console.log(rec.Name);
-            ajaxService.updateRecord(rec.id, rec.name, rec.email, rec.password, rec.role, rec.date_of_birth);
+            updateService.updateRecord(rec.id, rec.name, rec.email, rec.password, rec.role, rec.date_of_birth);
             $scope.editingData[rec.id] = false;
             $scope.editbtnn[rec.id] = true;
-            $scope.updbtn[rec.id] = false;
+            $scope.updbtn[rec.id] = true;
             self.fetch();
         };
 
         $scope.deleteData = function(rec) {
-            var promise = ajaxService.delete(rec);
+            var promise = deleteService.delete(rec);
             promise.then(function(data) {
                 $scope.delmsg = "Record Deleted...";
                 console.log("Record Deleted");
@@ -102,17 +86,6 @@
             promise.catch(function(data) {
                 $scope.delmsg = "Record Not Deleted...";
             });
-        };
-    }
-    ;
-
-
-    angular.module('formApp')
-            .filter('offset', offset);
-    function offset() {
-        return function(input, start) {
-            start = parseInt(start, 10);
-            return input.slice(start);
         };
     };
 })();

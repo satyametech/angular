@@ -3,7 +3,7 @@
 
     angular.module('formApp')
 .controller('inviteCtrl',inviteCtrl);
-function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout,$interval, ajaxService){
+function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout,$interval, inviteService){
     var role1;
     $scope.userRole = function () {
 
@@ -12,7 +12,7 @@ function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout,$interval, a
     $scope.inviteUser = function () {
          
             
-            var promise = ajaxService.sendEmail($scope.invtemail, $scope.selrole);
+            var promise = inviteService.sendEmail($scope.invtemail, $scope.selrole);
             $scope.emailmsg = "sending email please wait";
             promise.then(function (data) {
                 var data = data.data;

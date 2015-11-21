@@ -4,18 +4,18 @@
 //    var current_state=$state.$current.name;
     angular.module('formApp')
             .controller('loginCtrl', loginCtrl);
-    function loginCtrl($rootScope, $state, $scope, $http, ajaxService, $q, $localStorage) {
+    function loginCtrl($rootScope, $state, $scope, $http, loginService, $q, $localStorage) {
 
         $scope.loginData = function () {
             console.log($scope.email);
             console.log($scope.password);
-            var promise = ajaxService.loginData($scope.email, $scope.password);
+            var promise = loginService.loginData($scope.email, $scope.password);
             promise.then(function (data) {
                 console.log(data);
                 var data = data.data;
                 console.log(data.msg);
                 if (data.msg == "Success") {
-//                    alert(data.msg);
+
                     console.log('jabsdjh');
                     var user={
                         email:$scope.email,
