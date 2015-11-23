@@ -6,7 +6,7 @@
         var self = this;
 
         self.sendEmail = function(email, role) {
-            var urlbase = "Link :- excellencetechnologies.co.in/satyam/satyam/#/register/";
+            var urlbase = "Link :- excellencetechnologies.co.in/satyam/satyam/#/registeration/";
             var txtmsg = urlbase + role + "/" + email + ";";
 
             function emailReturn() {
@@ -18,6 +18,7 @@
             var promise = emailReturn();
             return promise;
         };
-  
-    };
+
+    }
+    ;
 })();

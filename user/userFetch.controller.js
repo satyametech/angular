@@ -2,7 +2,7 @@
     'use strict';
     angular.module('formApp')
             .controller('fetchCtrl', fetchCtrl);
-    function fetchCtrl($rootScope, $scope, $http, $interval, updateService,deleteService) {
+    function fetchCtrl($rootScope, $scope, $http, $interval, updateService, deleteService) {
         var data = 0;
 
         var self = this;
@@ -19,7 +19,7 @@
                 data = data - 5;
                 self.fetch();
                 $scope.prevPage.enabled = false;
-                
+
             }
         };
 
@@ -34,7 +34,7 @@
             else if ($scope.records.length !== 0) {
                 data = data + 5;
                 self.fetch();
-                $scope.nextPage.enabled = false;  
+                $scope.nextPage.enabled = false;
             }
         };
         self.fetch = function() {
@@ -49,7 +49,7 @@
             else
                 $scope.prev = false;
             $http.get('connection/fetch.php?page=' + data).success(function(data) {
-                
+
                 $scope.records = data.data;
                 $scope.length = data.length.count;
             });
@@ -87,5 +87,6 @@
                 $scope.delmsg = "Record Not Deleted...";
             });
         };
-    };
+    }
+    ;
 })();
