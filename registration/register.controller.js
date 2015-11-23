@@ -17,10 +17,8 @@
                     if ($scope.rpassword !== $scope.cpassword) {
                         $scope.error = "Password not matched";
                     } else {
-                        console.log(role);
+ 
                         var x = registerService.storeData($scope.name, $scope.remail, $scope.rpassword, $scope.role, $scope.date_of_birth);
-
-                        console.log(x);
                         if (x === false) {
                             $scope.error = "Some Thing Going Wrong";
                         } else {
