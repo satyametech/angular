@@ -10,6 +10,7 @@
         if ($localStorage.user.role === 'Admin') {
             $scope.home = true;
             $scope.invite = true;
+            
             $scope.view = true;
             $rootScope.editOption = true;
 
