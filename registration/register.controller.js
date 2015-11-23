@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('formApp')
-            .controller('signupCtrl', signupCtrl);
-    function signupCtrl($rootScope, $scope, $http, $interval, $stateParams, registerService) {
+            .controller('registrationCtrl', registrationCtrl);
+    function registrationCtrl($rootScope, $scope, $http, $interval, $stateParams, registerService) {
         $scope.role = $stateParams['role'];
         $scope.remail = $stateParams['email'];
         console.log($scope.role + $scope.remail);

@@ -57,7 +57,7 @@
                                 views: {
                                     "container": {
                                         templateUrl: 'registration/registration.html',
-                                        controller: 'signupCtrl'
+                                        controller: 'registrationCtrl'
 
 
                                     }
