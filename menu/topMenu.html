@@ -17,11 +17,11 @@
         
     
 
-        <li ng-class="{active: activetab=='/root.home' }" > <a ui-sref="roothome"><div  >Home</div></a></li>
+        <li ng-class="{active: activetab=='/app/home' }" > <a ui-sref="root.home"><div  >Home</div></a></li>
     
-        <li ng-class="{active: activetab=='/root.inviteUser'}" ng-show="invite"><a  ui-sref="root.inviteUser"><div >Invite User</div></a></li>
+        <li ng-class="{active: activetab=='/app/inviteUser'}" ng-show="invite"><a  ui-sref="root.inviteUser"><div >Invite User</div></a></li>
   
-        <li ng-class="{active: activetab=='/root.viewUser'}" ><a  ui-sref="root.viewUser"><div ng-click="vPage();"  >View All</div></a></li>
+        <li ng-class="{active: activetab=='/app/viewUser'}" ><a  ui-sref="root.viewUser"><div ng-click="vPage();"  >View All</div></a></li>
    
         <li >
         <a id="view" ui-sref="login" ng-click="logout(); "  > <div class=" glyphicon glyphicon-user"  >Logout</div></a></li>
