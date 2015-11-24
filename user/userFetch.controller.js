@@ -38,7 +38,7 @@
             }
         };
         self.fetch = function() {
-
+ 
             if (data + 5 > $scope.length)
                 $scope.next = true;
             else {
@@ -49,24 +49,37 @@
             else
                 $scope.prev = false;
             $http.get('connection/fetch.php?page=' + data).success(function(data) {
-                console.log(data);
+//                console.log(data);
                 $scope.iuser = data.users;
-                console.log($scope.iuser);
+                
                 $scope.records = data.data;
                 $scope.length = data.length.count;
+//                for(var a = 0; a <= $scope.length ; a++){
+//                    console.log($scope.records[a].id);
+//                    
+//                   
+//                    
+//                }
+//                
             });
+
         };
         self.fetch();
         var inid = '';
         var user = '';
         $scope.inviteUser = function(id) {
+           for(var a = 0; a <= $scope.length ; a++){
+               var sub= $scope.records[a].id;
+               $http.get('connection/fetch.php?page=' + sub).success(function(data) {
+                
+            
             for (var i = 0; i < $scope.iuser.length; i++)
             {
                 if ($scope.iuser[i] == null)
                 {
                 }
                 else if ($scope.iuser[i][0].invite_by == id) {
-                    console.log();
+//                    console.log();
                     var data = $scope.iuser[i];
                     var email = '';
                     for (var j = 0; j < data.length; j++)
@@ -76,8 +89,9 @@
                     return email;
 
                 }
-
             }
+
+            };
         };
         $scope.$on('eventName', function(event, args) {
             self.fetch();
