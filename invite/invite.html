@@ -21,7 +21,7 @@
                             </select>
                         </div>
                         <div class="form-group"> 
-                            <input type="submit" name="sendInvt" class="btn btn-lg btn-success btn-block" id="btnInvite" ng-model="sendInvt" value="Send Invitation" ng-click="inviteUser();" ng-disabled=" invite.$invalid || invite.invtemail.$error.pattern" >
+                            <input type="submit" name="sendInvt" class="btn btn-lg btn-success btn-block" id="btnInvite"   ng-click="inviteUser()" ng-disabled=" invite.$invalid || invite.invtemail.$error.pattern " >
                         </div>
                         <div class="form-group"> 
                             <span>{{emailmsg}}</span>

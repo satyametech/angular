@@ -49,41 +49,39 @@
             else
                 $scope.prev = false;
             $http.get('connection/fetch.php?page=' + data).success(function(data) {
-
+                console.log(data);
+                $scope.iuser = data.users;
+                console.log($scope.iuser);
                 $scope.records = data.data;
                 $scope.length = data.length.count;
             });
         };
         self.fetch();
+        var inid = '';
+        var user = '';
+        $scope.inviteUser = function(id) {
+            for (var i = 0; i < $scope.iuser.length; i++)
+            {
+                if ($scope.iuser[i] == null)
+                {
+                }
+                else if ($scope.iuser[i][0].invite_by == id) {
+                    console.log();
+                    var data = $scope.iuser[i];
+                    var email = '';
+                    for (var j = 0; j < data.length; j++)
+                    {
+                        email = email + data[j].email + '\n';
+                    }
+                    return email;
 
+                }
+
+            }
+        };
         $scope.$on('eventName', function(event, args) {
             self.fetch();
         });
-        
-        $scope.invitedata = function(rec){
-            alert("hdgshd");
-             $http.get('connection/record.php?page=').success(function(data) {
-                 if($localstorage.user.role == 'Admin')
-                 if ($scope.invite=true)
-             {
-                 $http.post('connection/require.php?page=').success(function(data){
-                     $scope.records=data.data;
-                     
-                 });
-             }
-                 
-             
-             else {
-                 
-                 console.log("error");
-                            
-                 }
-                  
-             });
-            
-        };
-        
-        
         $scope.editData = function(recAll) {
             $scope.editingData = [];
             $scope.editbtnn = [];

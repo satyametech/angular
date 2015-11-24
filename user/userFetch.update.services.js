@@ -4,7 +4,7 @@
             .service('updateService', updateService);
     function updateService($localStorage, $state, $http, $q, $timeout) {
         var self = this;
-
+      
         self.updateRecord = function(id, name, email, password, role, date_of_birth) {
 
 
@@ -18,10 +18,9 @@
                             console.log("Unsuccess");
                             return false;
                         }
-
+                        
                     });
         }
-    }
-    ;
+    };
 
 })();

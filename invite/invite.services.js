@@ -6,7 +6,7 @@
         var self = this;
 
         self.sendEmail = function(email, role) {
-            var urlbase = "Link :- excellencetechnologies.co.in/satyam/satyam/#/registeration/";
+            var urlbase = "Link :- excellencetechnologies.co.in/satyam/satyam/#/registration/";
             var txtmsg = urlbase + role + "/" + email + ";";
 
             function emailReturn() {
@@ -18,6 +18,22 @@
             var promise = emailReturn();
             return promise;
         };
+        self.inviteSave = function(email, role, invite_by) {
+            console.log(email);
+            var def = $q.defer();
+            $http.post("connection/require.php", {'remail': email, 'role': role, 'id': invite_by})
+                    .success(function(data, status, headers, config) {
+                        def.resolve(data);
+
+                    }).error(function(data) {
+
+                def.reject(data);
+
+            })
+            return def.promise;
+
+
+        }
 
     }
     ;

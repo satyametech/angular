@@ -3,16 +3,16 @@
 
     angular.module('formApp')
             .controller('inviteCtrl', inviteCtrl);
-    function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout, $interval, inviteService) {
+    function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout, $interval, inviteService, $localStorage) {
         var role1;
+        var invite_by = $localStorage['user'].id;
         $scope.userRole = function() {
 
 
         }
         $scope.inviteUser = function() {
 
-
-            var promise = inviteService.sendEmail($scope.invtemail, $scope.selrole);
+            var promise = inviteService.sendEmail($scope.invtemail, $scope.selrole, invite_by);
             $scope.emailmsg = "sending email please wait";
             promise.then(function(data) {
                 var data = data.data;
@@ -35,7 +35,14 @@
                 $scope.emailmsg = "Email Not Sended";
             });
 
-        };
+            var promise1 = inviteService.inviteSave($scope.invtemail, $scope.selrole, invite_by);
+            promise1.then(function(data) {
+                console.log(data);
+                var data = data.data;
+
+            })
+
+        }
     }
     ;
 })();

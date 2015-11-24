@@ -4,7 +4,7 @@
             .service('deleteService', deleteService);
     function deleteService($localStorage, $state, $http, $q, $timeout) {
         var self = this;
-
+        
         self.delete = function(id) {
             function delRes() {
                 var def = $q.defer();
@@ -15,6 +15,5 @@
             var promise = delRes();
             return promise;
         };
-    }
-    ;
+    };
 })();

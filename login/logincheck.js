@@ -10,7 +10,7 @@ angular.module('formApp')
             $rootScope.$on('$stateChangeSuccess',
                     function(event, toState, toParams, fromState, fromParams) {
 
-                        if (toState.name != 'login' && toState.name != 'register' && $localStorage['user'])
+                        if (toState.name != 'login' && toState.name != 'registration' && $localStorage['user'])
                         {
 
                             $state.go(toState.name);
@@ -23,7 +23,7 @@ angular.module('formApp')
                                 $state.go('login');
                             }
                             else if (toState.name == 'registration') {
-                                $state.go(toState.name);
+                                $state.go('registration');
                             }
                             else {
                                 $state.go('login');
@@ -35,5 +35,5 @@ angular.module('formApp')
                         }
 
                     })
-
-        });
+                
+         });

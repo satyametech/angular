@@ -20,11 +20,10 @@ if (mysqli_num_rows($query_result) == 1) {
 
 if ($login) {
    
-    
 
-    $arr = array("msg" => "Success", "role" => $row[5]);
+    $arr = array("msg" => "Success", "id" => $row[0], "role" => $row[5]);
     $json = json_encode($arr);
-    print_r($json);
+   print_r($json);
 } 
 else {
 
