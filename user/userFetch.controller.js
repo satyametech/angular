@@ -4,13 +4,10 @@
             .controller('fetchCtrl', fetchCtrl);
     function fetchCtrl($rootScope, $scope, $http, $interval, updateService, deleteService) {
         var data = 0;
-
         var self = this;
         $scope.itemsPerPage = 5;
         $scope.currentPage = 0;
         $scope.records = [];
-
-
         $scope.prevPage = function() {
             if ($scope.currentPage > 0) {
                 $scope.currentPage--;
@@ -19,7 +16,6 @@
                 data = data - 5;
                 self.fetch();
                 $scope.prevPage.enabled = false;
-
             }
         };
 
@@ -37,7 +33,7 @@
                 $scope.nextPage.enabled = false;
             }
         };
-        self.fetch = function() {
+        self.fetch = function(id) {
 
             if (data + 5 > $scope.length)
                 $scope.next = true;
@@ -51,24 +47,21 @@
             $http.get('connection/fetch.php?page=' + data).success(function(data) {
 //                console.log(data);
                 $scope.iuser = data.users;
-
                 $scope.records = data.data;
                 $scope.length = data.length.count;
-                for (var a = 0; a <= $scope.length; a++) {
-//                    console.log($scope.records[a].id);
-                    var duce = jQuery.parseJSON($scope.records[a].id);
-
-
-                    $http.get('connection/id.php?id=' + duce).success(function() {
-                    });
+                for (var k = 0; k < $scope.length; k++) {
+                  
+                   var duce = [$scope.records[k].id];
+                    
+                    $http.get('connection/id.php?id=' + duce ).success(function(id) {
+                        
+                    });              
                 }
+                
             });
-
         };
         self.fetch();
         $scope.inviteUser = function(id) {
-
-
             for (var i = 0; i < $scope.iuser.length; i++)
             {
                 if ($scope.iuser[i] == null)
@@ -83,10 +76,7 @@
                         email = email + data[j].email + '\n';
                     }
                     return email;
-
                 }
-
-
             }
             ;
         }
@@ -103,7 +93,7 @@
             $scope.updbtn[recAll.id] = true;
         };
         $scope.updateData = function(rec) {
-            console.log(rec.Name);
+            
             updateService.updateRecord(rec.id, rec.name, rec.email, rec.password, rec.role, rec.date_of_birth);
             $scope.editingData[rec.id] = false;
             $scope.editbtnn[rec.id] = true;

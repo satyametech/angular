@@ -4,7 +4,8 @@
             .filter('offset', offset);
     function offset() {
         return function(input, start) {
-            start = parseInt(start, 10);
+        if (!input || !input.length) { return; }
+            start = +start;
             return input.slice(start);
         };
     }

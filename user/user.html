@@ -50,10 +50,10 @@
             <span>{{delmsg}}</span>
 
             <ul class="pager">  
-                <button class="btn-btn btn-sm btn-success btn-block-success" ng-click="prevPage()" ng-hide="prev"> 
+                <button class="btn-btn btn-sm btn-success btn-block-success" ng-click="prevPage()" ng-disabled="prev"> 
                     <a href = "#">prev
                     </a> </button>
-                <button class="btn-btn btn-sm btn-success btn-block-success"  ng-click="nextPage()" ng-hide="next">
+                <button class="btn-btn btn-sm btn-success btn-block-success"  ng-click="nextPage()" ng-disabled ="next">
                     <a href = "#">next
                     </a> </button>
             </ul>
