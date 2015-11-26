@@ -33,7 +33,7 @@
                         reverse = !reverse"> <a href="" >INVITE USER </a></th>
                     <th class="fetch info" ng-hide="editth"><a href="" >Edit/Delete</a></th>
                 </tr>
-                <tr ng-if="rec" id="1" ng-repeat=" rec in records| orderBy:columnToOrder:reverse | filter:search | offset: currentPage * itemsPerPage | limitTo: itemsPerPage ">
+                <tr ng-if="rec" id="1" ng-repeat=" rec in records | orderBy:columnToOrder:reverse | filter:search | offset: currentPage * itemsPerPage | limitTo: itemsPerPage ">
                     <td class="fetch" ng-model="dataId" >{{rec.id}}</td>
                     <td class="fetch" ><input type="text" name="rId" style="width:140px;" ng-model="rec.name" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.name}}</span></td>
                     <td class="fetch"><input type="text" name="rId" style="width:140px;" ng-model="rec.email" ng-show="editingData[rec.id]"><span ng-hide="editingData[rec.id]">{{rec.email}}</span></td>

@@ -3,12 +3,9 @@
 
     angular.module('formApp')
             .controller('inviteCtrl', inviteCtrl);
-    function inviteCtrl($rootScope, $scope, $http, $q, $state, $timeout, $interval, inviteService, $localStorage) {
-        var role1;
+    function inviteCtrl($scope, $http, $q, $state, $timeout, $interval, inviteService, $localStorage) {
         var invite_by = $localStorage['user'].id;
         $scope.userRole = function() {
-
-
         }
         $scope.inviteUser = function() {
 
@@ -16,7 +13,6 @@
             $scope.emailmsg = "sending email please wait";
             promise.then(function(data) {
                 var data = data.data;
-                console.log("hello" + data.err);
                 if (data.msg === "Not Success") {
                     $scope.emailmsg = data.err + data.msg;
                 } else {
@@ -37,7 +33,6 @@
 
             var promise1 = inviteService.inviteSave($scope.invtemail, $scope.selrole, invite_by);
             promise1.then(function(data) {
-                console.log(data);
                 var data = data.data;
 
             })

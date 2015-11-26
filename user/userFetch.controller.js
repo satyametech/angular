@@ -45,19 +45,20 @@
             else
                 $scope.prev = false;
             $http.get('connection/fetch.php?page=' + data).success(function(data) {
-//                console.log(data);
+
                 $scope.iuser = data.users;
                 $scope.records = data.data;
                 $scope.length = data.length.count;
-                for (var k = 0; k < $scope.length; k++) {
-                  
-                   var duce = [$scope.records[k].id];
-                    
-                    $http.get('connection/id.php?id=' + duce ).success(function(id) {
-                        
-                    });              
+
+                for (var k = 0; k < data.data.length; k++) {
+
+                    var duce = [$scope.records[k].id];
+
+                    $http.get('connection/id.php?id=' + duce).success(function(id) {
+
+                    });
                 }
-                
+
             });
         };
         self.fetch();
@@ -93,7 +94,7 @@
             $scope.updbtn[recAll.id] = true;
         };
         $scope.updateData = function(rec) {
-            
+
             updateService.updateRecord(rec.id, rec.name, rec.email, rec.password, rec.role, rec.date_of_birth);
             $scope.editingData[rec.id] = false;
             $scope.editbtnn[rec.id] = true;
