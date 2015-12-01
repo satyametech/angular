@@ -15,7 +15,7 @@ while ($resultset = mysqli_fetch_assoc($result)) {
     // $i++;
     $id = $resultset['id'];
     $new3 = array();
-    $nsql = "SELECT email, invite_by FROM `invite` WHERE `invite_by`='$id' ";
+    $nsql = "SELECT email,address, invite_by FROM `invite` WHERE `invite_by`='$id' ";
 //$nsql="SELECT  logindata.name FROM logindata INNER JOIN invite ON logindata.email =invite.email";
     $nresult = mysqli_query($conn, $nsql);
     $new[] = $resultset;

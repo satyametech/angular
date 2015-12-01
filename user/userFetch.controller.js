@@ -45,8 +45,9 @@
             else
                 $scope.prev = false;
             $http.get('connection/fetch.php?page=' + data).success(function(data) {
-
+                
                 $scope.iuser = data.users;
+                
                 $scope.records = data.data;
                 $scope.length = data.length.count;
 
@@ -68,20 +69,27 @@
                 if ($scope.iuser[i] == null)
                 {
                 }
-                else if ($scope.iuser[i][0].invite_by == id) {
-//                    console.log();
+                else if ($scope.iuser[i][0].invite_by==id) {
+                         
                     var data = $scope.iuser[i];
                     var email = '';
+                    var address='';
+                    
                     for (var j = 0; j < data.length; j++)
+//                    console.log(data);
                     {
                         email = email + data[j].email + '\n';
-                    }
-                    return email;
-                }
-            }
-            ;
-        }
-        ;
+                        address = address + data[j].address+'\n' ;
+                       
+                    }                    
+                    return {email:email,address:address};
+                     
+                     
+ 
+                };
+            };
+        };        
+
         $scope.$on('eventName', function(event, args) {
             self.fetch();
         });
